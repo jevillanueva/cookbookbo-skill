@@ -8,7 +8,7 @@ from starlette.middleware.sessions import SessionMiddleware
 
 from app.auth.access import get_actual_user
 from app.core import configuration
-from app.routers import oauth_google, users, token
+from app.routers import oauth_google, users, token, alexa
 
 TITLE = configuration.APP_TITLE
 VERSION = configuration.APP_VERSION
@@ -61,3 +61,5 @@ async def redoc_html(
 app.include_router(oauth_google.router, prefix="/api/google", tags=["Security Google"])
 app.include_router(users.router, prefix="/api/users", tags=["Users"])
 app.include_router(token.router, prefix="/api/token", tags=["Token"])
+
+app.include_router(alexa.router, prefix="/api/alexa", tags=["Alexa"])

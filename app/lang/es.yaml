@@ -1,0 +1,6 @@
+default: "Mensaje por defecto"
+title: "Cocina Boliviana"
+skill_hello: Bienvenido a Cocina Boliviana, ¿qué deseas preparar hoy?
+skill_help: "Puedes decir receta de plato paceño, o prueba decir una receta aleatoria de bolivia"
+skill_cancel: "Hasta luego!"
+skill_exception: "Lo siento, no pude procesarlo. Puedes intentar nuevamente o decir Ayuda"
