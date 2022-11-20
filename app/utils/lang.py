@@ -24,6 +24,17 @@ class LANG_KEYS(Enum):
     skill_cancel = "skill_cancel"
     skill_exception = "skill_exception"
 
+    skill_recipes_not_found = "skill_recipes_not_found"
+    skill_recipe_start = "skill_recipe_start"
+    skill_recipe_preparation_principal = "skill_recipe_preparation_principal"
+    skill_recipe_preparation_not_principal = "skill_recipe_preparation_not_principal"
+    skill_recipe_not_ingredients = "skill_recipe_not_ingredients"
+    skill_recipe_ingredients = "skill_recipe_ingredients"
+    # skill_ingredient_unit_singular = "skill_ingredient_unit_singular"
+    # skill_ingredient_unit_many = "skill_ingredient_unit_many"
+    skill_ingredient_optional = "skill_ingredient_optional"
+    skill_recipe_not_steps = "skill_recipe_not_steps"
+
 def get_message(key:LANG_KEYS):
     if not isinstance(key,LANG_KEYS):
         raise TypeError('direction must be an instance of Direction Enum')

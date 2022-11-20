@@ -11,3 +11,5 @@ APP_SECRET_TOKENS = os.getenv("APP_SECRET_TOKENS", "43e36b7672fadda3df4b158f414c
 APP_TOKEN_ALGORITHM="HS256"
 APP_ALEXA_SKILL_ID = os.getenv("APP_ALEXA_SKILL_ID", "")
 APP_LANG = os.getenv("APP_LANG", "es")
+APP_WS_RECIPES_URL = os.getenv("APP_WS_RECIPES_URL", "http://localhost:8001")
+APP_WS_RECIPES_SECRET = os.getenv("APP_WS_RECIPES_SECRET", "my_super_secret_token")

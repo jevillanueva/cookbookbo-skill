@@ -16,8 +16,10 @@ class LaunchRequestHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         print("Ejecucion de la Skill.")
+        attr = handler_input.attributes_manager.session_attributes
+        attr["in_search"] = True
         speech_text = get_message(LANG_KEYS.skill_hello)
-        handler_input.response_builder.speak(speech_text).set_card(
+        handler_input.response_builder.speak(speech_text).speak(speech_text).set_card(
             SimpleCard(get_message(LANG_KEYS.title), speech_text)
         ).set_should_end_session(False)
         return handler_input.response_builder.response

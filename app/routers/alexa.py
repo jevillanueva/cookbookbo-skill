@@ -3,7 +3,7 @@ from fastapi import APIRouter, Request, status
 from app.core.configuration import APP_ALEXA_SKILL_ID
 from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_webservice_support.webservice_handler import WebserviceSkillHandler
-from app.alexa import default_intents, cookbookbo
+from app.alexa import default_intents, obtain_recipe, start_recipe, select_recipe
 router = APIRouter()
 skill_builder = SkillBuilder()
 skill_builder.skill_id  = APP_ALEXA_SKILL_ID  # type: ignore
@@ -14,7 +14,10 @@ skill_builder.add_request_handler(default_intents.CancelAndStopIntentHandler())
 skill_builder.add_request_handler(default_intents.SessionEndedRequestHandler())
 skill_builder.add_exception_handler(default_intents.AllExceptionHandler())
 # Own Intents
-skill_builder.add_request_handler(cookbookbo.GetRecipeIntentHandler())
+skill_builder.add_request_handler(obtain_recipe.IntentHandler())
+skill_builder.add_request_handler(start_recipe.IntentHandler())
+skill_builder.add_request_handler(select_recipe.IntentHandler())
+
 webservice_handler = WebserviceSkillHandler(skill=skill_builder.create())
 
 @router.post("/cookbookbo", status_code=status.HTTP_200_OK)
