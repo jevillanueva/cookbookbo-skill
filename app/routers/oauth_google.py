@@ -26,8 +26,6 @@ async def login(request: Request):
     redirect_uri = request.url_for("auth_server_side")
     redirect_uri =  validate_forwarded_proto.validateHTTPS(url=redirect_uri, schema=request.headers.get("x-forwarded-proto"))
     google = oauth.create_client('google')
-    print(redirect_uri)
-    print (request.headers)
     return await google.authorize_redirect(request, redirect_uri)
 
 
@@ -35,7 +33,6 @@ async def login(request: Request):
 async def auth_server_side(request: Request):
     google = oauth.create_client('google')
     token = await google.authorize_access_token(request)
-    print(token)
     user = token.get('userinfo')
     request.session['user'] = dict(user)
     userDB = UserInDB(

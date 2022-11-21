@@ -27,7 +27,6 @@ class UserService:
                 {"$set": user.dict(by_alias=True)},
                 return_document=ReturnDocument.AFTER,
             )
-        print(ret)
         return ret
 
     @staticmethod

@@ -16,15 +16,11 @@ class IntentHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         attr = handler_input.attributes_manager.session_attributes
-        print ("======", RECIPE_INTENT )
-        print (attr)
-        print ("======", RECIPE_INTENT )
         return is_intent_name(RECIPE_INTENT)(handler_input) and attr.get("in_search") == False and attr.get("in_select") == True
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         option = get_slot_value(handler_input, RECIPE_HANDLER_INPUT)
-        print (option)
         attr = handler_input.attributes_manager.session_attributes
         recipes = attr["recipes"]
         option = int(option)

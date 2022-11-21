@@ -17,7 +17,6 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        print("Ejecucion de la Skill.")
         attr = handler_input.attributes_manager.session_attributes
         attr["in_search"] = True
         speech_text = get_message(LANG_KEYS.skill_hello)
@@ -34,7 +33,6 @@ class HelpIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        print("Ejecucion Intent Ayuda")
         speech_text = get_message(LANG_KEYS.skill_help)
         handler_input.response_builder.speak(speech_text).ask(speech_text).set_card(
             SimpleCard(get_message(LANG_KEYS.title), speech_text)
@@ -46,14 +44,10 @@ class RepeatIntentHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         attr = handler_input.attributes_manager.session_attributes
-        print("======", "AMAZON.RepeatIntent")
-        print(attr)
-        print("======", "AMAZON.RepeatIntent")
         return is_intent_name("AMAZON.RepeatIntent")(handler_input)
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        print("Ejecucion Intent Repeat")
         attr = handler_input.attributes_manager.session_attributes
         if attr.get("start") == True:
 
@@ -92,14 +86,10 @@ class NextIntentHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         attr = handler_input.attributes_manager.session_attributes
-        print("======", "AMAZON.NextIntent")
-        print(attr)
-        print("======", "AMAZON.NextIntent")
         return is_intent_name("AMAZON.NextIntent")(handler_input) and attr.get("start", False) == True
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        print("Ejecucion Intent Next")
         attr = handler_input.attributes_manager.session_attributes
         
         preparation_state = attr.get("preparation", False)
@@ -152,14 +142,10 @@ class PreviousIntentHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         attr = handler_input.attributes_manager.session_attributes
-        print("======", "AMAZON.PreviousIntent")
-        print(attr)
-        print("======", "AMAZON.PreviousIntent")
         return is_intent_name("AMAZON.PreviousIntent")(handler_input) and attr.get("start", False) == True
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        print("Ejecucion Intent Next")
         attr = handler_input.attributes_manager.session_attributes
         
         init = attr.get("init", False)
@@ -229,7 +215,6 @@ class CancelAndStopIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        print("Ejecucion Intent Cancel o Stop")
         speech_text = get_message(LANG_KEYS.skill_cancel)
         handler_input.response_builder.speak(speech_text).set_card(
             SimpleCard(get_message(LANG_KEYS.title), speech_text)
@@ -255,7 +240,6 @@ class AllExceptionHandler(AbstractExceptionHandler):
 
     def handle(self, handler_input, exception):
         # type: (HandlerInput, Exception) -> Response
-        print(exception)
         speech = get_message(LANG_KEYS.skill_exception)
         handler_input.response_builder.speak(speech).ask(speech)
         return handler_input.response_builder.response
