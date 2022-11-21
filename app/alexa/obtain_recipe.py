@@ -6,8 +6,8 @@ from ask_sdk_model.ui import SimpleCard  # type: ignore
 from app.utils.lang import get_message, LANG_KEYS
 from app.webservices.recipes import RecipesWebService
 from app.alexa.recipe_to_dialog import RecipeToSpeach
+from app.alexa.speach_recipe import SpeachRecipe
 from ssml_builder.core import Speech
-
 RECIPE_HANDLER_INPUT = "receta"
 RECIPE_INTENT = "ObtenerReceta"
 
@@ -36,7 +36,7 @@ class IntentHandler(AbstractRequestHandler):
             speak = get_message(LANG_KEYS.skill_recipes_not_found)
             handler_input.response_builder.speak(speak).set_card(
                 SimpleCard(get_message(LANG_KEYS.title), speak)
-            )
+            ).ask(speak)
         else:
             if recipe is None or len(recipes) == 1:  # Random Recipe or only one recipe
                 actual_recipe = recipes[0]
@@ -45,15 +45,13 @@ class IntentHandler(AbstractRequestHandler):
                 attr["in_select"] = False
                 attr["preparation_index"] = 0
                 attr["step_index"] = 0
+                attr["start"] = True
+                attr["init"] = True
+                attr["ingredients"] = True
+                attr["preparation"] = True
+                attr["step"] = True
                 name = actual_recipe.get("name")
-                speech = Speech()
-                display = Speech()
-                speech, display = RecipeToSpeach.convert_name(speech,display, actual_recipe)
-                speech, display = RecipeToSpeach.convert_preparation(speech, display, actual_recipe, 0)
-                speech, display = RecipeToSpeach.convert_ingredients(speech, display, actual_recipe, 0)
-                speech, display = RecipeToSpeach.convert_steps(speech,display, actual_recipe, 0, 0)
-                # speak = get_message(LANG_KEYS.skill_recipe_start)
-                print(speech.speech)
+                speech, display =  SpeachRecipe.speach_recipe(actual_recipe, 0,0,True, True,True,True)
                 handler_input.response_builder.speak(speech.speech).set_card(
                     SimpleCard(name, display.speech)
                 ).ask(speech.speech)
@@ -62,6 +60,12 @@ class IntentHandler(AbstractRequestHandler):
                 attr["in_search"] = False
                 attr["in_select"] = True
                 attr["recipes"] = recipes
+                speech = Speech()
+                display = Speech()
+                speech, display = RecipeToSpeach.recipes_to_options(speech,display, recipes)
+                handler_input.response_builder.speak(speech.speech).set_card(
+                    SimpleCard(get_message(LANG_KEYS.skill_options_title), display.speech)
+                ).ask(speech.speech)
 
         # .set_should_end_session(True)
         return handler_input.response_builder.response

@@ -30,10 +30,23 @@ class LANG_KEYS(Enum):
     skill_recipe_preparation_not_principal = "skill_recipe_preparation_not_principal"
     skill_recipe_not_ingredients = "skill_recipe_not_ingredients"
     skill_recipe_ingredients = "skill_recipe_ingredients"
-    # skill_ingredient_unit_singular = "skill_ingredient_unit_singular"
-    # skill_ingredient_unit_many = "skill_ingredient_unit_many"
     skill_ingredient_optional = "skill_ingredient_optional"
     skill_recipe_not_steps = "skill_recipe_not_steps"
+    skill_no_recipes = "skill_no_recipes"
+    skill_select_recipe = "skill_select_recipe"
+    skill_conjuntion = "skill_conjuntion"
+    skill_options_title = "skill_options_title"
+    skill_options_valid = "skill_options_valid"
+    skill_repeat_no_init = "skill_repeat_no_init"
+    skill_repeat_error = "skill_repeat_error"
+    skill_next_end_recipe = "skill_next_end_recipe"
+    skill_prev_init_recipe = "skill_prev_init_recipe"
+
+    skill_recipe_init_time = "skill_recipe_init_time"
+    skill_recipe_minutes = "skill_recipe_minutes"
+    skill_recipe_init_portions = "skill_recipe_init_portions"
+    skill_recipe_portion_single = "skill_recipe_portion_single"
+    skill_recipe_portion_many = "skill_recipe_portion_many"
 
 def get_message(key:LANG_KEYS):
     if not isinstance(key,LANG_KEYS):
