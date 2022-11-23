@@ -195,3 +195,9 @@ class RecipeToSpeach:
                     speech.add_text(option)
                     display.add_text(option)
         return speech, display
+    
+    @classmethod
+    def convert_hints(cls, speech: Speech, display: Speech): 
+        speech.add_text(get_message(LANG_KEYS.skill_hints_recipe))
+        display.add_text(get_message(LANG_KEYS.skill_hints_recipe))
+        return speech,display

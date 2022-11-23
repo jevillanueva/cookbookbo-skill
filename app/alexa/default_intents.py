@@ -33,7 +33,10 @@ class HelpIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speech_text = get_message(LANG_KEYS.skill_help)
+        
+        speech_text = get_message(LANG_KEYS.skill_help) + "\n"
+        speech_text += get_message(LANG_KEYS.skill_help_hint) + "\n"
+        speech_text += get_message(LANG_KEYS.skill_hints_recipe)
         handler_input.response_builder.speak(speech_text).ask(speech_text).set_card(
             SimpleCard(get_message(LANG_KEYS.title), speech_text)
         )

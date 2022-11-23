@@ -38,7 +38,7 @@ class IntentHandler(AbstractRequestHandler):
             attr["preparation"] = True
             attr["step"] = True
             name = actual_recipe.get("name")
-            speech, display =  SpeachRecipe.speach_recipe(actual_recipe, 0,0,True, True,True, True)
+            speech, display =  SpeachRecipe.speach_recipe(actual_recipe, 0,0,True, True,True, True, True)
             handler_input.response_builder.speak(speech.speech).set_card(
                 SimpleCard(name, display.speech)
             ).ask(speech.speech)

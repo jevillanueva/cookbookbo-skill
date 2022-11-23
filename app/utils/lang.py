@@ -47,6 +47,8 @@ class LANG_KEYS(Enum):
     skill_recipe_init_portions = "skill_recipe_init_portions"
     skill_recipe_portion_single = "skill_recipe_portion_single"
     skill_recipe_portion_many = "skill_recipe_portion_many"
+    skill_help_hint = "skill_help_hint"
+    skill_hints_recipe =  "skill_hints_recipe"
 
 def get_message(key:LANG_KEYS):
     if not isinstance(key,LANG_KEYS):

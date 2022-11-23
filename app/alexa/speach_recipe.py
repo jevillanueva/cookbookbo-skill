@@ -13,7 +13,8 @@ class SpeachRecipe:
         ingredients: bool = False,
         init: bool = False,
         preparation: bool = False,
-        step: bool = False
+        step: bool = False,
+        hint: bool = False
     ):
         speech = Speech()
         display = Speech()
@@ -25,4 +26,6 @@ class SpeachRecipe:
             speech, display = RecipeToSpeach.convert_ingredients(speech, display, recipe, preparation_idx)
         if step == True:
             speech, display = RecipeToSpeach.convert_steps(speech, display, recipe, preparation_idx, step_idx)
+        if hint == True:
+            speech, display = RecipeToSpeach.convert_hints(speech, display)
         return speech,display

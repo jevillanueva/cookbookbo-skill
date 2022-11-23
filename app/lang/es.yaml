@@ -1,7 +1,8 @@
 default: "Mensaje por defecto"
 title: "Cocina Boliviana"
-skill_hello: "Bienvenido a Cocina Boliviana, ¿qué deseas preparar hoy?"
-skill_help: "Puedes decir receta de plato paceño, o prueba decir una receta aleatoria de Bolivia"
+skill_hello: 'Bienvenido a Cocina Boliviana, ¿qué deseas preparar hoy?. Puedes decir el nombre de una receta.'
+skill_help: 'Puedes decir receta de "humintas", o prueba decir una receta aleatoria.'
+skill_help_hint: "Cuando hayas seleccionado una receta se te guiará paso a paso."
 skill_cancel: "¡Hasta luego! ¡Gracias por utilizar Cocina Boliviana!"
 skill_exception: "Lo siento, no pude procesarlo. Puedes intentar nuevamente o decir Ayuda"
 skill_recipes_not_found: "Lo siento, no encontre recetas disponibles, intenta nuevamente"
@@ -26,3 +27,4 @@ skill_repeat_no_init: "Aun no seleccionó una receta para poder repetir los ingr
 skill_repeat_error: "No se puede repetir el último mensaje"
 skill_next_end_recipe: "Se llego al final de la receta puede decir repetir para repetir el último paso, anterior para retroceder o decir terminar para finalizar"
 skill_prev_init_recipe: "Se llego al inicio de la receta puede decir repetir para repetir el actual paso, siguiente para avanzar o decir terminar para finalizar"
+skill_hints_recipe: "Puedes decir siguiente para avanzar en los pasos de la receta, anterior para retroceder, o repetir para volver a escuchar el paso actual"
