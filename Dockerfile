@@ -3,7 +3,8 @@ LABEL MAINTAINER="Jonathan Villanueva <me@jevillanueva.dev>"
 RUN apk update && apk add --no-cache python3-dev \
     gcc \
     libc-dev \
-    libffi-dev
+    libffi-dev \
+    openssl-dev
 WORKDIR /app/
 ADD . /app/
 RUN pip install  --no-cache-dir -r requirements.txt
