@@ -3,28 +3,28 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: apitoken
-  name: apitoken
+    app: cookbookbo-skill
+  name: cookbookbo-skill
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: apitoken
+      app: cookbookbo-skill
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: apitoken
+        app: cookbookbo-skill
     spec:
       containers:
-      - image: apitoken-app:latest
-        name: apitoken-app
-        imagePullPolicy: IfNotPresent
+      - image: jevillanueva/cookbookbo-skill:latest
+        name: cookbookbo-skill
+        imagePullPolicy: Always
         ports:
           - containerPort: 8000
         envFrom:
           - secretRef:
-              name: apitoken
+              name: cookbookbo-skill
         resources: {}
 status: {}

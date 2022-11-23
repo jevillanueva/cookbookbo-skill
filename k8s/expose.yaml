@@ -3,8 +3,8 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: apitoken
-  name: apitoken
+    app: cookbookbo-skill
+  name: cookbookbo-skill
 spec:
   ports:
   - port: 8000
@@ -12,7 +12,7 @@ spec:
     targetPort: 8000
     nodePort: 30007  #(default: 30000-32767)
   selector:
-    app: apitoken
+    app: cookbookbo-skill
   type: NodePort
 status:
   loadBalancer: {}
