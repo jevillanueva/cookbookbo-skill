@@ -3,16 +3,14 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: cookbookbo-skill-dev
-  name: cookbookbo-skill-dev
+    app: cookbookbo-skill
+  name: cookbookbo-skill
 spec:
   ports:
   - port: 8000
     protocol: TCP
     targetPort: 8000
-    nodePort: 30007  #(default: 30000-32767)
   selector:
     app: cookbookbo-skill
-  type: NodePort
 status:
   loadBalancer: {}
