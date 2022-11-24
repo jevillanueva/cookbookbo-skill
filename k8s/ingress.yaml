@@ -9,7 +9,7 @@ spec:
   tls:
   - hosts:
     - skill.cocinabo.jevillanueva.dev
-    secretName: quickstart-example-tls
+    secretName: skill-cocinabo
   rules:
   - host: skill.cocinabo.jevillanueva.dev
     http:
