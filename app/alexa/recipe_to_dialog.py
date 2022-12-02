@@ -107,7 +107,7 @@ class RecipeToSpeach:
                     speech.add_text(ing_name)
                     # Screens
                     display.add_text("- " + ing_name)
-                    if ing_unit == "unknow":
+                    if ing_unit == "unknown":
                         if ing_qtty_eq == 0.0:
                             speech.add_text(f" {ing_unit_eq}")
                             # Screens
