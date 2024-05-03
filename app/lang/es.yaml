@@ -1,9 +1,9 @@
 default: "Mensaje por defecto"
-title: "Cocina Boliviana"
-skill_hello: 'Bienvenido a Cocina Boliviana, ¿qué deseas preparar hoy?. Puedes decir el nombre de una receta.'
+title: "Ayllu Food"
+skill_hello: 'Bienvenido a Ayllu Food, ¿qué deseas preparar hoy?. Puedes decir el nombre de una receta.'
 skill_help: 'Puedes decir receta de "humintas", o prueba decir una receta aleatoria.'
 skill_help_hint: "Cuando hayas seleccionado una receta se te guiará paso a paso."
-skill_cancel: "¡Hasta luego! ¡Gracias por utilizar Cocina Boliviana!"
+skill_cancel: "¡Hasta luego! ¡Gracias por utilizar Ayllu Food!"
 skill_exception: "Lo siento, no pude procesarlo. Puedes intentar nuevamente o decir Ayuda"
 skill_recipes_not_found: "Lo siento, no encontre recetas disponibles, intenta nuevamente"
 skill_recipe_start: "Preparemos esta receta"
